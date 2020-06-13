@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 
 	"github.com/fareez-ahamed/go-bintree/bintree"
 )
@@ -10,12 +11,9 @@ func main() {
 
 	var tree bintree.BinTree
 
-	tree.Add(10)
-	tree.Add(11)
-	tree.Add(9)
-	tree.Add(12)
-
-	// fmt.Println(tree)
+	for i := 0; i < 100; i++ {
+		tree.Add(rand.Intn(1000))
+	}
 
 	tree.Traverse(func(a int) {
 		fmt.Println(a)
