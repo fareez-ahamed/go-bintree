@@ -1,6 +1,6 @@
 package bintree
 
-func addNode(node *Node, newNode *Node) {
+func addNode(node, newNode *Node) {
 	if node.data < newNode.data {
 		if node.right == nil {
 			node.right = newNode

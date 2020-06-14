@@ -30,7 +30,7 @@ func (tree *BinTree) Print() {
 	if tree == nil || tree.root == nil {
 		return
 	}
-	traverseNode(tree.root, 0, func(val int, level int) {
+	traverseNode(tree.root, 0, func(val, level int) {
 		format := "%" + strconv.Itoa(level*4) + "d\n"
 		fmt.Printf(format, val)
 	})

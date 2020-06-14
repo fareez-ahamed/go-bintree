@@ -15,8 +15,4 @@ func main() {
 	}
 
 	tree.Print()
-
-	// tree.Traverse(func(a int, level int) {
-	// 	fmt.Println(a)
-	// })
 }
