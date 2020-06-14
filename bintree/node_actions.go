@@ -16,10 +16,10 @@ func addNode(node *Node, newNode *Node) {
 	}
 }
 
-func traverseNode(node *Node, callback func(int)) {
+func traverseNode(node *Node, level int, callback func(int, int)) {
 	if node != nil {
-		traverseNode(node.left, callback)
-		callback(node.data)
-		traverseNode(node.right, callback)
+		traverseNode(node.left, level+1, callback)
+		callback(node.data, level)
+		traverseNode(node.right, level+1, callback)
 	}
 }

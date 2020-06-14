@@ -1,5 +1,10 @@
 package bintree
 
+import (
+	"fmt"
+	"strconv"
+)
+
 // Add is used to add a new value to the Binary tree
 func (tree *BinTree) Add(val int) {
 	newNode := &Node{data: val}
@@ -13,9 +18,20 @@ func (tree *BinTree) Add(val int) {
 }
 
 // Traverse is used for DFS traverse
-func (tree *BinTree) Traverse(callback func(int)) {
+func (tree *BinTree) Traverse(callback func(int, int)) {
 	if tree == nil || tree.root == nil {
 		return
 	}
-	traverseNode(tree.root, callback)
+	traverseNode(tree.root, 0, callback)
+}
+
+// Print is used for printing the tree
+func (tree *BinTree) Print() {
+	if tree == nil || tree.root == nil {
+		return
+	}
+	traverseNode(tree.root, 0, func(val int, level int) {
+		format := "%" + strconv.Itoa(level*4) + "d\n"
+		fmt.Printf(format, val)
+	})
 }
