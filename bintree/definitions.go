@@ -1,3 +1,5 @@
+// Package bintree provides Types to and functions for
+// creating and manipulating Binary trees
 package bintree
 
 // Node is the basic building block of the
