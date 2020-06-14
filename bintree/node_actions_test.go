@@ -38,3 +38,30 @@ func TestAddNode(t *testing.T) {
 		t.Error("Adding second level on the left side")
 	}
 }
+
+func TestTraverse(t *testing.T) {
+	nodeRight := &Node{data: 20}
+	nodeLeft := &Node{data: 10}
+	node := &Node{data: 15, left: nodeLeft, right: nodeRight}
+
+	var s []int
+
+	traverseNode(node, 0, func(val, level int) {
+		s = append(s, val)
+	})
+
+	if len(s) != 3 {
+		t.Error("Length of traversing is not correct")
+	}
+
+	node = nil
+	s = s[:0]
+
+	traverseNode(node, 0, func(val, level int) {
+		s = append(s, val)
+	})
+
+	if len(s) != 0 {
+		t.Errorf("Length of traversing is not correct when nil node is passed - Expect: %d:, Recevied: %d", 0, len(s))
+	}
+}
