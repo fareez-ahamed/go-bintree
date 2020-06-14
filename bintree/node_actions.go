@@ -1,6 +1,9 @@
 package bintree
 
 func addNode(node, newNode *Node) {
+	if newNode == nil {
+		return
+	}
 	if node.data < newNode.data {
 		if node.right == nil {
 			node.right = newNode
